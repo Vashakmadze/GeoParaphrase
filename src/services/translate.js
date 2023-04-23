@@ -1,8 +1,7 @@
 
 const translate = async (fromLang, toLang, text) => {
 
-    // const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
-    const API_KEY = process.env.VITE_GOOGLE_API_KEY;
+    const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
     console.log(API_KEY);
     let url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
     url += '&q=' + encodeURI(text);
