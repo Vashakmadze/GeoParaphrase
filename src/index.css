@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "GEORGIA";
+    src: url("./assets/fonts/bpg_nino_mtavruli_bold.ttf");
+}
+
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
