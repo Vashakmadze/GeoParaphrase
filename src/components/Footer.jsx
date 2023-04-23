@@ -11,6 +11,7 @@ function Footer() {
   return (
     <footer className='w-10/12 m-auto border-t-2 border-grey border-solid py-4 text-[#8c8d94] flex justify-between flex-row'>
         <p>© Copyright 2023 ყველა უფლება დაცულია</p>
+        <p>ლუკა ვაშაყმაძე</p>
         <div className='icons flex flex-row [&>*]:text-2xl [&>*]:mx-2 [&>*]:hover:cursor-pointer'>
             <a href='https://www.facebook.com/luka.vashakmadze.1' target='blank'>
                 <BsFacebook className='hover:fill-[#60A5FA]'/>
