@@ -16,7 +16,6 @@ function Paraphraser() {
     const text = inputRef.current.value;
 
     const finalResult = await paraphraseMain(text);
-    console.log(finalResult)
     
     outputRef.current.value = finalResult.data;
   }
