@@ -15,7 +15,7 @@ function Header() {
       <header className='flex items-center justify-center flex-wrap bg-blue-400 p-6'>
         <section className="flex items-center flex-no-shrink text-white mr-6">
           <img src={icon} className='w-12 mr-4'/>
-          <h1 className="font-semibold text-xl tracking-tight text-center">ტექსტის პერიფრაზირება </h1>
+          <h1 className="font-semibold text-xl tracking-tight text-center">ტექსტის ავტომატური პერიფრაზირება </h1>
         </section>
       </header>
       { visible && 
