@@ -1,20 +1,14 @@
-
-const rewrite = async (message) => {
-    const url = "https://api.openai.com/v1/chat/completions";
+const paraphraseMain = async (message) => {
+    const url = "https://gadawre-server.vercel.app/paraphrase";
 
     const apiRequestBody = {
-        "model": "gpt-3.5-turbo",
-        "messages": [
-            {"role": "system", "content": "You are going to paraphrase"},
-            {"role": "user", "content": message},
-        ]    
+        "text": message
     }
 
     const response = await fetch(url, { 
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer " + import.meta.env.VITE_OPENAI_API_KEY
         },
         body: JSON.stringify(apiRequestBody)
       })
@@ -30,4 +24,4 @@ const rewrite = async (message) => {
     return response;
 } 
 
-export default rewrite;
+export default paraphraseMain;

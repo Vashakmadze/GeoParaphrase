@@ -1,7 +1,5 @@
 import React, { useRef, useState } from 'react'
-import translate from '../services/translate';
-import rewrite from '../services/rewrite';
-import { data } from 'autoprefixer';
+import paraphraseMain from '../services/paraphrase';
 
 function Paraphraser() {
 
@@ -17,11 +15,10 @@ function Paraphraser() {
   const paraphrasedResult = async () => {
     const text = inputRef.current.value;
 
-    const response = await translate("ka", "en", text);
-    const paraphrased = await rewrite(response.data.translations[0].translatedText);
-    const finalResult = await translate("en", "ka", paraphrased.choices[0].message.content);
+    const finalResult = await paraphraseMain(text);
+    console.log(finalResult)
     
-    outputRef.current.value = finalResult.data.translations[0].translatedText;
+    outputRef.current.value = finalResult.data;
   }
 
   const updateDailyUsage = () => {
