@@ -48,7 +48,7 @@ function Paraphraser() {
   const paraphrase = () => {
     const usage = JSON.parse(localStorage.getItem("usage"));
     if(usage) {
-      if(usage[date] < 10) {
+      if(usage[date] < 10 || usage[date] !== usage) {
         paraphrasedResult();
       } else {
         alert("თქვენ დღიური ლიმიტი ამოგეწურათ. ამჟამინდელი ყოველდღიური ლიმიტია - 10.")
