@@ -67,7 +67,7 @@ function Paraphraser() {
 					</label>
 					<textarea
 						ref={inputRef}
-						maxLength={2000}
+						maxLength={200}
 						id="text"
 						rows="10"
 						className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-400"
