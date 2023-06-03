@@ -63,7 +63,7 @@ function Paraphraser() {
 						htmlFor="text"
 						className="block mb-2 font-medium text-gray-90 text-lg">
 						თქვენი ტექსტი{" "}
-						<span className="max float-right">{charlength} / 2000</span>
+						<span className="max float-right">{charlength} / 200</span>
 					</label>
 					<textarea
 						ref={inputRef}
