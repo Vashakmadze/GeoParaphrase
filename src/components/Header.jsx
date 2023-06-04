@@ -4,7 +4,7 @@ import x from "../assets/x.svg";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 
-function Header({ signedIn, setSignedIn }) {
+function Header({ signedIn, setSignedIn, user, setUser }) {
 	const [visible, setVisible] = useState(true);
 	const [login, setLogin] = useState(false);
 	const [register, setRegister] = useState(false);
@@ -26,6 +26,8 @@ function Header({ signedIn, setSignedIn }) {
 		toggleRegister();
 	};
 
+	console.log(user);
+
 	return (
 		<>
 			<header className="text-white flex items-between justify-between flex-wrap bg-blue-400 p-6 font-semibold text-xl  tracking-tight">
@@ -36,7 +38,7 @@ function Header({ signedIn, setSignedIn }) {
 					/>
 					<h1>ტექსტის ავტომატური პერიფრაზირება </h1>
 				</section>
-				{!signedIn && (
+				{!signedIn ? (
 					<section className="flex items-center">
 						<div
 							className="text-center mr-6 cursor-pointer transition duration-500 hover:scale-110"
@@ -49,6 +51,8 @@ function Header({ signedIn, setSignedIn }) {
 							რეგისტრაცია
 						</div>
 					</section>
+				) : (
+					<section className="flex items-center">{user.email}</section>
 				)}
 			</header>
 			{visible && (
@@ -76,12 +80,18 @@ function Header({ signedIn, setSignedIn }) {
 				<LoginModal
 					toggle={toggleLogin}
 					toggleBoth={toggleBoth}
+					setSignedIn={setSignedIn}
+					setUser={setUser}
+					user={user}
 				/>
 			)}
 			{register && (
 				<RegisterModal
 					toggle={toggleRegister}
 					toggleBoth={toggleBoth}
+					setSignedIn={setSignedIn}
+					setUser={setUser}
+					user={user}
 				/>
 			)}
 		</>

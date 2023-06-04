@@ -3,25 +3,23 @@ import app from './firebase';
 
 const auth = getAuth(app);
 
-export const login = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
+export const login = async (email, password) => {
+    return await signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user)
+            return userCredential.user;
         })
-        .catch((error) => {
-            console.log(error)
+        .catch((err) => {
+            throw err;
         });
 }
 
-export const register = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password)
+export const register = async (email, password) => {
+    return await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user)
+            return userCredential.user;
         })
-        .catch((error) => {
-            console.log(error)
+        .catch((err) => {
+            throw err;
         })
 }
 

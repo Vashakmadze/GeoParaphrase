@@ -1,7 +1,52 @@
-import React from "react";
+import { React, useRef } from "react";
 import { register } from "../services/authentication";
 
-export const RegisterModal = ({ toggle, toggleBoth }) => {
+export const RegisterModal = ({
+	toggle,
+	toggleBoth,
+	setSignedIn,
+	user,
+	setUser,
+}) => {
+	const emailRef = useRef();
+	const passwordRef = useRef();
+
+	const authenticate = async (e) => {
+		e.preventDefault();
+		try {
+			const response = await register(
+				emailRef.current.value,
+				passwordRef.current.value
+			);
+			setSignedIn((prevState) => !prevState);
+			setUser(response);
+			sessionStorage.setItem("user", JSON.stringify(response));
+			toggle();
+		} catch (err) {
+			handleError(err.code);
+		}
+	};
+
+	const handleError = (code) => {
+		switch (code) {
+			case "auth/email-already-in-use":
+				alert("ელექტრონული ფოსტა უკვე გამოყენებულია.");
+				break;
+			case "auth/invalid-email":
+				alert("არასწორი ელექტრონული ფოსტა.");
+				break;
+			case "auth/wrong-password":
+				alert("პაროლი არასწორია.");
+				break;
+			case "auth/user-not-found":
+				alert("არასწორი ელექტრონული ფოსტა.");
+				break;
+			default:
+				console.log(code);
+				alert("დაფიქსირდა შეცდომა. სცადეთ თავიდან.");
+		}
+	};
+
 	return (
 		<div
 			id="authentication-modal"
@@ -42,6 +87,7 @@ export const RegisterModal = ({ toggle, toggleBoth }) => {
 									ელექტრონული ფოსტა
 								</label>
 								<input
+									ref={emailRef}
 									type="email"
 									name="email"
 									id="email"
@@ -57,6 +103,7 @@ export const RegisterModal = ({ toggle, toggleBoth }) => {
 									პაროლი
 								</label>
 								<input
+									ref={passwordRef}
 									type="password"
 									name="password"
 									id="password"
@@ -67,7 +114,8 @@ export const RegisterModal = ({ toggle, toggleBoth }) => {
 							</div>
 							<button
 								type="submit"
-								className="w-full text-white bg-indigo-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">
+								className="w-full text-white bg-indigo-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+								onClick={authenticate}>
 								რეგისტრაცია
 							</button>
 						</form>
