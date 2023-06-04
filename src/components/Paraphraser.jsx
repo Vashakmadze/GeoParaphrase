@@ -58,6 +58,7 @@ function Paraphraser() {
 	return (
 		<main className="w-10/12 m-auto px-3 my-[4rem]">
 			<div className="paraphraser flex flex-col lg:flex-row">
+				<div id="firebaseui-auth-container"></div>
 				<div className="relative textarea flex-1 mb-6 lg:mr-6">
 					<label
 						htmlFor="text"
