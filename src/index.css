@@ -3,10 +3,24 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "GEORGIA";
-    src: url("./assets/fonts/bpg_nino_mtavruli_bold.ttf");
+	font-family: "GEORGIA";
+	src: url("./assets/fonts/bpg_nino_mtavruli_bold.ttf");
 }
 
 * {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	--tw-bg-opacity: 1;
+	background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+::-webkit-scrollbar-thumb {
+	--tw-bg-opacity: 1;
+	background-color: rgb(49 46 129 / var(--tw-bg-opacity));
 }
