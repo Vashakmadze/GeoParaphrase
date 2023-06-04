@@ -15,9 +15,11 @@ function Paraphraser() {
 	const paraphrasedResult = async () => {
 		const text = inputRef.current.value;
 
-		const finalResult = await paraphraseMain(text, setLoading);
+		if (text.length > 1) {
+			const finalResult = await paraphraseMain(text, setLoading);
 
-		outputRef.current.value = finalResult.data;
+			outputRef.current.value = finalResult.data;
+		}
 	};
 
 	const updateDailyUsage = () => {
