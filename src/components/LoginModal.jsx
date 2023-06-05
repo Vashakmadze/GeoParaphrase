@@ -51,8 +51,8 @@ export const LoginModal = ({
 			id="authentication-modal"
 			tabIndex="-1"
 			aria-hidden="true"
-			className="fixed top-0 left-[35%] z-50 w-full p-4 overflow-x-hidden overflow-y-auto h-[calc(100%-1rem)] max-h-full">
-			<div className="relative w-full max-w-md max-h-full">
+			className="fixed top-0 left-0 z-50 w-full overflow-x-hidden overflow-y-auto h-[calc(100%-1rem)] max-h-full">
+			<div className="flex items-center justify-center w-full h-full backdrop-blur-sm">
 				<div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
 					<button
 						type="button"
