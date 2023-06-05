@@ -26,8 +26,6 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 		toggleRegister();
 	};
 
-	console.log(user);
-
 	return (
 		<>
 			<header className="text-white flex items-between justify-between flex-wrap bg-blue-400 p-6 font-semibold text-xl  tracking-tight">
