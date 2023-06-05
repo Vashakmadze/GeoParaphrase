@@ -3,6 +3,7 @@ import icon from "../assets/Icon.png";
 import x from "../assets/x.svg";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
+import Dropdown from "./Dropdown";
 
 function Header({ signedIn, setSignedIn, user, setUser }) {
 	const [visible, setVisible] = useState(true);
@@ -24,6 +25,12 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 	const toggleBoth = () => {
 		toggleLogin();
 		toggleRegister();
+	};
+
+	const logout = () => {
+		setUser(null);
+		setSignedIn(false);
+		sessionStorage.removeItem("user");
 	};
 
 	return (
@@ -50,7 +57,12 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 						</div>
 					</section>
 				) : (
-					<section className="flex items-center">{user.email}</section>
+					<section className="flex items-center">
+						<Dropdown
+							user={user}
+							logout={logout}
+						/>
+					</section>
 				)}
 			</header>
 			{visible && (
