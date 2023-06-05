@@ -1,5 +1,5 @@
 import { useRef, React } from "react";
-import { login } from "../services/authentication";
+import { login, resetPassword } from "../services/authentication";
 
 export const LoginModal = ({
 	toggle,
@@ -77,7 +77,7 @@ export const LoginModal = ({
 							გთხოვთ შეიყვანეთ მონაცემები
 						</h3>
 						<form
-							className="space-y-6"
+							className="space-y-4"
 							action="#">
 							<div>
 								<label
@@ -117,14 +117,21 @@ export const LoginModal = ({
 								onClick={authenticate}>
 								შესვლა
 							</button>
-							<div className="text-sm font-medium text-gray-500 dark:text-gray-300">
+							<div className="text-sm font-medium text-gray-500 dark:text-gray-300 cursor-pointer">
 								არ ხართ რეგისტრირებული?{" "}
-								<a
-									href="#"
+								<button
 									className="text-blue-700 hover:underline dark:text-blue-500"
 									onClick={toggleBoth}>
 									შექმენით ანგარიში
-								</a>
+								</button>
+							</div>
+							<div className="text-sm font-medium text-gray-500 dark:text-gray-300 cursor-pointer">
+								დაგავიწყდათ პაროლი?{" "}
+								<button
+									className="text-blue-700 hover:underline dark:text-blue-500"
+									onClick={() => resetPassword(emailRef)}>
+									აღადგინე
+								</button>
 							</div>
 						</form>
 					</div>
