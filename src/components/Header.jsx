@@ -35,13 +35,13 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 
 	return (
 		<>
-			<header className="text-white flex items-between justify-between flex-wrap bg-blue-400 p-6 font-semibold text-xl  tracking-tight">
+			<header className="text-white flex justify-between flex-wrap bg-blue-400 p-6 font-semibold text-xl tracking-tight">
 				<section className="flex items-center flex-no-shrin mr-6 ">
 					<img
 						src={icon}
 						className="w-12 mr-4"
 					/>
-					<h1>ტექსტის ავტომატური პერიფრაზირება </h1>
+					<h1 className="hidden md:block">ტექსტის ავტომატური პერიფრაზირება </h1>
 				</section>
 				{!signedIn ? (
 					<section className="flex items-center">

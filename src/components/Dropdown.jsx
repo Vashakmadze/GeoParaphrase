@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { MdSwitchAccount } from "react-icons/md";
+import { resetPassword } from "../services/authentication";
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
@@ -10,7 +11,7 @@ export default function Dropdown({ user, logout }) {
 	return (
 		<Menu
 			as="div"
-			className="relative inline-block text-left">
+			className="relative inline-block text-left cursor-pointer">
 			<div>
 				<Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md transition duration-500 hover:scale-110 bg-transparent px-3 py-2 text-xl font-semibold text-white">
 					{user.email}
@@ -33,13 +34,14 @@ export default function Dropdown({ user, logout }) {
 					<div className="py-1">
 						<Menu.Item>
 							{({ active }) => (
-								<a
+								<button
 									className={classNames(
 										active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-										"block px-4 py-2 text-sm"
-									)}>
-									ჩემი ანგარიში
-								</a>
+										"block w-full px-4 py-2 text-left text-sm"
+									)}
+									onClick={() => resetPassword(user.email)}>
+									პაროლის შეცვლა
+								</button>
 							)}
 						</Menu.Item>
 						<Menu.Item>
@@ -49,7 +51,7 @@ export default function Dropdown({ user, logout }) {
 										active ? "bg-gray-100 text-gray-900" : "text-gray-700",
 										"block px-4 py-2 text-sm"
 									)}>
-									პაკეტის შეძენას
+									პაკეტის მართვა
 								</a>
 							)}
 						</Menu.Item>

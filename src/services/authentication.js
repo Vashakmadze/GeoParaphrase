@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import app from './firebase';
 
 const auth = getAuth(app);
@@ -21,5 +21,17 @@ export const register = async (email, password) => {
         .catch((err) => {
             throw err;
         })
+}
+
+export const resetPassword = async (email) => {
+    return await sendPasswordResetEmail(auth, email)
+        .then(() => {
+            console.log("email sent")
+            // Password reset email sent!
+            // ..
+        })
+        .catch((error) => {
+            throw err;
+        });
 }
 
