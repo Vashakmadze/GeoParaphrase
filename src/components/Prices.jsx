@@ -5,23 +5,32 @@ function Prices() {
 	const offerStandard = {
 		name: "უფასო პაკეტი",
 		price: 0,
-		offers: {},
+		offers: {
+			charachters: 200,
+			words: 50,
+		},
 	};
 
 	const offerPremium = {
 		name: "პრემიუმ პაკეტი",
-		price: 15,
-		offers: {},
+		price: 5,
+		offers: {
+			charachters: 1000,
+			words: 100,
+		},
 	};
 
 	const offerUnlimited = {
-		name: "ულიმიტო პაკეტი",
-		price: 25,
-		offers: {},
+		name: "გრანდიოზული პაკეტი",
+		price: 10,
+		offers: {
+			charachters: 2000,
+			words: 200,
+		},
 	};
 	return (
 		<section className="w-10/12 m-auto space-y-6 mb-14">
-			<h1 className="text-2xl">შეთავაზებები - გადაწერე შეუზღუდავად</h1>
+			<h1 className="text-2xl">შეთავაზებები - გადაწერე ნაკლები შეზღუდვით</h1>
 			<div className="flex justify-between flex-col gap-4 md:flex-row">
 				<PriceCard data={offerStandard} />
 				<PriceCard data={offerPremium} />
