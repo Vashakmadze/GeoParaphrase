@@ -41,8 +41,8 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 
 	return (
 		<>
-			<header className="text-white flex justify-between flex-wrap bg-blue-400 p-6 font-semibold text-xl tracking-tight">
-				<section className="flex items-center flex-no-shrin mr-6 ">
+			<header className="text-white flex md:justify-between flex-col items-center gap-10 md:gap-0 md:flex-row flex-wrap bg-blue-400 p-6 font-semibold text-xl tracking-tight">
+				<section className="flex items-center flex-no-shrin md:mr-6">
 					<img
 						src={icon}
 						className="w-12 mr-4"
