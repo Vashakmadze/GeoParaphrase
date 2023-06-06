@@ -1,19 +1,25 @@
-import { useRef, React } from "react";
+import { useRef, React, useState, useEffect } from "react";
 
-export const ResetPasswordModal = ({ mail, toggle }) => {
+export const ResetPasswordModal = ({ mail, setReset }) => {
+	useEffect(() => {
+		setTimeout(function () {
+			setReset(false);
+		}, 9500);
+	}, []);
+
 	return (
 		<div
 			id="resetpaswword-modal"
 			tabIndex="-1"
 			aria-hidden="true"
-			className="fixed top-0 left-0 z-50 w-full overflow-x-hidden overflow-y-auto h-[calc(100%-1rem)] max-h-full">
-			<div className="flex items-center justify-center w-full h-full backdrop-blur-sm">
+			className="fixed bottom-10 right-10 z-50 w-fit overflow-x-hidden overflow-y-auto h-fit shadow-2xl">
+			<div className="flex items-center justify-center w-full h-full">
 				<div className="relative bg-white rounded-lg shadow dark:bg-gray-700 max-w-xl">
 					<button
 						type="button"
 						className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
 						data-modal-hide="resetpaswword-modal"
-						onClick={toggle}>
+						onClick={() => setReset(false)}>
 						<svg
 							aria-hidden="true"
 							className="w-5 h-5"
@@ -35,6 +41,9 @@ export const ResetPasswordModal = ({ mail, toggle }) => {
 							პაროლის შესაცვლელად გთხოვთ მიჰყევით ინსტრუქციას, რომელიც თქვენს
 							მეილზეა({mail}) გამოგზანვილი.
 						</p>
+					</div>
+					<div class="progress progress-striped">
+						<div class="progress-bar"></div>
 					</div>
 				</div>
 			</div>

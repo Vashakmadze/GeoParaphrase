@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import icon from "../assets/Icon.png";
 import x from "../assets/x.svg";
 import LoginModal from "./LoginModal";
@@ -114,7 +114,7 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 			{resetPassword && signedIn && (
 				<ResetPasswordModal
 					mail={user.email}
-					toggle={resetPasswordToggle}
+					setReset={setResetPassword}
 				/>
 			)}
 		</>
