@@ -42,8 +42,8 @@ export const ResetPasswordModal = ({ mail, setReset }) => {
 							მეილზეა({mail}) გამოგზანვილი.
 						</p>
 					</div>
-					<div class="progress progress-striped">
-						<div class="progress-bar"></div>
+					<div className="progress progress-striped">
+						<div className="progress-bar"></div>
 					</div>
 				</div>
 			</div>

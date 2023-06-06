@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Paraphraser from "../components/Paraphraser";
 import About from "../components/About";
 import Footer from "../components/Footer";
+import Prices from "../components/Prices";
 import { Analytics } from "@vercel/analytics/react";
 import { register, login } from "../services/authentication";
 
@@ -27,6 +28,7 @@ function App() {
 				setUser={setUser}
 			/>
 			<Paraphraser />
+			<Prices />
 			<About />
 			<Footer />
 			<Analytics />
