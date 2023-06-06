@@ -14,10 +14,10 @@ export const ResetPasswordModal = ({ mail, setReset }) => {
 			aria-hidden="true"
 			className="fixed bottom-10 right-10 z-50 w-fit overflow-x-hidden overflow-y-auto h-fit shadow-2xl">
 			<div className="flex items-center justify-center w-full h-full">
-				<div className="relative bg-white rounded-lg shadow dark:bg-gray-700 max-w-xl">
+				<div className="relative bg-white rounded-lg shadow max-w-xl">
 					<button
 						type="button"
-						className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+						className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
 						data-modal-hide="resetpaswword-modal"
 						onClick={() => setReset(false)}>
 						<svg
@@ -34,7 +34,7 @@ export const ResetPasswordModal = ({ mail, setReset }) => {
 						<span className="sr-only">Close modal</span>
 					</button>
 					<div className="px-6 py-6 lg:px-8">
-						<h3 className="mb-4 mr-4 text-xl font-medium text-gray-900 dark:text-white">
+						<h3 className="mb-4 mr-4 text-xl font-medium text-gray-900">
 							პაროლის შეცვლა
 						</h3>
 						<p className="text-lg font-semibold text-gray-700">
