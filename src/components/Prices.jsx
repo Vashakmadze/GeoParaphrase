@@ -18,7 +18,7 @@ function Prices() {
 		offers: {
 			charachters: 1000,
 			words: 100,
-			paraphrases: 100,
+			paraphrases: 50,
 		},
 	};
 
