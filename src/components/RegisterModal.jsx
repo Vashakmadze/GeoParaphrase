@@ -67,10 +67,10 @@ export const RegisterModal = ({
 			aria-hidden="true"
 			className="fixed top-0 left-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto h-[calc(100%-1rem)] max-h-full">
 			<div className="flex items-center justify-center w-full h-full backdrop-blur-sm">
-				<div className="relative bg-white rounded-lg shadow w-[28rem] dark:bg-gray-700">
+				<div className="relative bg-white rounded-lg shadow w-[28rem]">
 					<button
 						type="button"
-						className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+						className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
 						data-modal-hide="authentication-modal"
 						onClick={toggle}>
 						<svg
@@ -87,7 +87,7 @@ export const RegisterModal = ({
 						<span className="sr-only">Close modal</span>
 					</button>
 					<div className="px-6 py-6 lg:px-8">
-						<h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
+						<h3 className="mb-4 text-xl font-medium text-gray-900">
 							რეგისტრაცია
 						</h3>
 						<form
@@ -96,7 +96,7 @@ export const RegisterModal = ({
 							<div>
 								<label
 									htmlFor="email"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+									className="block mb-2 text-sm font-medium text-gray-900">
 									ელექტრონული ფოსტა
 								</label>
 								<input
@@ -104,7 +104,7 @@ export const RegisterModal = ({
 									type="email"
 									name="email"
 									id="email"
-									className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+									className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 									placeholder="name@company.com"
 									required
 								/>
@@ -112,7 +112,7 @@ export const RegisterModal = ({
 							<div>
 								<label
 									htmlFor="password"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+									className="block mb-2 text-sm font-medium text-gray-900">
 									პაროლი
 								</label>
 								<input
@@ -121,12 +121,12 @@ export const RegisterModal = ({
 									name="password"
 									id="password"
 									placeholder="••••••••"
-									className="bg-gray-50 mb-6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+									className="bg-gray-50 mb-6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 									required
 								/>
 								<label
 									htmlFor="repeatPassword"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+									className="block mb-2 text-sm font-medium text-gray-900">
 									გაიმეორეთ პაროლი
 								</label>
 								<input
@@ -135,7 +135,7 @@ export const RegisterModal = ({
 									name="repeatPassword"
 									id="repeatPassword"
 									placeholder="••••••••"
-									className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+									className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 									required
 								/>
 							</div>
