@@ -35,7 +35,7 @@ function Prices() {
 	return (
 		<section className="w-10/12 m-auto space-y-6 mb-14">
 			<h1 className="text-2xl">შეთავაზებები - გადაწერე ნაკლები შეზღუდვით</h1>
-			<div className="flex justify-between flex-col gap-4 md:flex-row">
+			<div className="flex justify-between flex-col gap-4 lg:flex-row items-center">
 				<PriceCard data={offerStandard} />
 				<PriceCard data={offerPremium} />
 				<PriceCard data={offerUnlimited} />
