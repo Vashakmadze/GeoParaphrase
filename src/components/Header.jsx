@@ -4,11 +4,13 @@ import x from "../assets/x.svg";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 import Dropdown from "./Dropdown";
+import ResetPasswordModal from "./ResetPasswordModal";
 
 function Header({ signedIn, setSignedIn, user, setUser }) {
 	const [visible, setVisible] = useState(true);
 	const [login, setLogin] = useState(false);
 	const [register, setRegister] = useState(false);
+	const [resetPassword, setResetPassword] = useState(false);
 
 	const popupClose = () => {
 		setVisible((prevState) => !prevState);
@@ -31,6 +33,10 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 		setUser(null);
 		setSignedIn(false);
 		sessionStorage.removeItem("user");
+	};
+
+	const resetPasswordToggle = () => {
+		setResetPassword((prevState) => !prevState);
 	};
 
 	return (
@@ -61,6 +67,7 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 						<Dropdown
 							user={user}
 							logout={logout}
+							resetPasswordToggle={resetPasswordToggle}
 						/>
 					</section>
 				)}
@@ -102,6 +109,12 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 					setSignedIn={setSignedIn}
 					setUser={setUser}
 					user={user}
+				/>
+			)}
+			{resetPassword && signedIn && (
+				<ResetPasswordModal
+					mail={user.email}
+					toggle={resetPasswordToggle}
 				/>
 			)}
 		</>

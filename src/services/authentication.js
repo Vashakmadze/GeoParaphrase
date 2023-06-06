@@ -31,7 +31,7 @@ export const resetPassword = async (email) => {
             // ..
         })
         .catch((error) => {
-            throw err;
+            throw error;
         });
 }
 

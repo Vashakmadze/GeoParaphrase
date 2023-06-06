@@ -7,7 +7,7 @@ function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
 }
 
-export default function Dropdown({ user, logout }) {
+export default function Dropdown({ user, logout, resetPasswordToggle }) {
 	return (
 		<Menu
 			as="div"
@@ -39,7 +39,10 @@ export default function Dropdown({ user, logout }) {
 										active ? "bg-gray-100 text-gray-900" : "text-gray-700",
 										"block w-full px-4 py-2 text-left text-sm"
 									)}
-									onClick={() => resetPassword(user.email)}>
+									onClick={() => {
+										resetPassword(user.email);
+										resetPasswordToggle();
+									}}>
 									პაროლის შეცვლა
 								</button>
 							)}
