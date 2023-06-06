@@ -31,6 +31,7 @@ function Prices() {
 			paraphrases: "ულიმიტო",
 		},
 	};
+
 	return (
 		<section className="w-10/12 m-auto space-y-6 mb-14">
 			<h1 className="text-2xl">შეთავაზებები - გადაწერე ნაკლები შეზღუდვით</h1>
