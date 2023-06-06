@@ -8,6 +8,7 @@ function Prices() {
 		offers: {
 			charachters: 200,
 			words: 50,
+			paraphrases: 10,
 		},
 	};
 
@@ -17,6 +18,7 @@ function Prices() {
 		offers: {
 			charachters: 1000,
 			words: 100,
+			paraphrases: 100,
 		},
 	};
 
@@ -26,6 +28,7 @@ function Prices() {
 		offers: {
 			charachters: 2000,
 			words: 200,
+			paraphrases: "ულიმიტო",
 		},
 	};
 	return (
