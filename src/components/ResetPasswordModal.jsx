@@ -39,7 +39,7 @@ export const ResetPasswordModal = ({ mail, setReset }) => {
 						</h3>
 						<p className="text-lg font-semibold text-gray-700">
 							პაროლის შესაცვლელად გთხოვთ მიჰყევით ინსტრუქციას, რომელიც თქვენს
-							მეილზეა({mail}) გამოგზანვილი.
+							მეილზეა({mail}) გამოგზავნილი.
 						</p>
 					</div>
 					<div className="progress progress-striped">
