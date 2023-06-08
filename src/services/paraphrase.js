@@ -1,5 +1,5 @@
 const paraphraseMain = async (message, setLoading) => {
-    const url = "http://localhost:8000/paraphrase";
+    const url = "https://gadawre-server.vercel.app/paraphrase";
 
     const apiRequestBody = {
         "text": message
