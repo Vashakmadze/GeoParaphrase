@@ -2,12 +2,22 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { MdSwitchAccount } from "react-icons/md";
 import { resetPassword } from "../services/authentication";
+import { getSubscriptionPortal } from "../services/stripe";
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
 }
 
 export default function Dropdown({ user, logout, resetPasswordToggle }) {
+	const createPortal = async () => {
+		if (user.id) {
+			const portal = await getSubscriptionPortal(user.id);
+			window.location.replace(portal.data.url);
+		} else {
+			alert("თქვენ არ გაქვთ შეძენილი პაკეტი.");
+		}
+	};
+
 	return (
 		<Menu
 			as="div"
@@ -53,7 +63,8 @@ export default function Dropdown({ user, logout, resetPasswordToggle }) {
 									className={classNames(
 										active ? "bg-gray-100 text-gray-900" : "text-gray-700",
 										"block px-4 py-2 text-sm"
-									)}>
+									)}
+									onClick={createPortal}>
 									პაკეტის მართვა
 								</a>
 							)}
