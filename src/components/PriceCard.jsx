@@ -5,6 +5,7 @@ function PriceCard({ data, signedIn }) {
 	const buy = async () => {
 		if (signedIn) {
 			const response = await subscribe(data.price);
+			sessionStorage.setItem("session", response.data.id);
 			window.location.replace(response.data.url);
 		} else {
 			alert("გთხოვთ გაიარეთ ავტორიზაცია");

@@ -7,24 +7,71 @@ import Prices from "../components/Prices";
 import { Analytics } from "@vercel/analytics/react";
 import { register, login } from "../services/authentication";
 import ErrorModal from "../components/ErrorModal";
+import { getSubscription } from "../services/stripe";
+import {
+	addSubscriptionToDatabase,
+	getSubscriptionFromDatabase,
+} from "../services/database";
 
 function App() {
 	const [signedIn, setSignedIn] = useState(false);
 	const [user, setUser] = useState();
 	const [subscription, setSubscription] = useState();
 	const [error, setError] = useState(true);
+	const [tier, setTier] = useState({
+		maxParaphrases: 10,
+		maxChars: 200,
+	});
 
 	const searchParams = new URLSearchParams(document.location.search);
 	const status = searchParams.get("status");
-	console.log(status);
 
 	useEffect(() => {
 		console.log("გადი ბიჭო აქედან!");
 		if (sessionStorage.getItem("user")) {
-			setUser(JSON.parse(sessionStorage.getItem("user")));
+			const userFromStorage = JSON.parse(sessionStorage.getItem("user"));
+			setUser(userFromStorage);
 			setSignedIn(true);
 		}
+		if (sessionStorage.getItem("session") && status === "success") {
+			const fetchSubscription = async () => {
+				const respone = await getSubscription(
+					sessionStorage.getItem("session")
+				);
+				return respone;
+			};
+			fetchSubscription().then((resp) => {
+				if (resp.data.status === "complete") {
+					const data = {
+						email: resp.data.customer_details.email,
+						customer: resp.data.customer,
+					};
+					sessionStorage.removeItem("session");
+					addSubscriptionToDatabase(resp.data.id, data);
+					setSubscription(true);
+				} else {
+					console.log("ar aris nakid", resp.data);
+				}
+			});
+		}
 	}, []);
+
+	useEffect(() => {
+		if (user) {
+			getSubscriptionFromDatabase(
+				user.email,
+				setTier,
+				setSubscription,
+				setUser
+			);
+		} else {
+			setTier({
+				maxParaphrases: 10,
+				maxChars: 201,
+			});
+			setSubscription(false);
+		}
+	}, [user]);
 
 	return (
 		<>
@@ -34,7 +81,7 @@ function App() {
 				user={user}
 				setUser={setUser}
 			/>
-			<Paraphraser />
+			<Paraphraser tier={tier} />
 			{!subscription && <Prices signedIn={signedIn} />}
 			<About />
 			<Footer />

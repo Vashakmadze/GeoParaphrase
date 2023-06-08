@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import paraphraseMain from "../services/paraphrase";
 
-function Paraphraser() {
+function Paraphraser({ tier }) {
 	const [charlength, setCharlength] = useState(0);
 	const [loading, setLoading] = useState(false);
 	const date = new Date().toLocaleDateString("en-US");
@@ -39,12 +39,13 @@ function Paraphraser() {
 		const usage = JSON.parse(localStorage.getItem("usage"));
 		if (usage) {
 			if (Object.keys(usage)[0] === date) {
-				if (usage[date] < 10) {
+				if (usage[date] < tier.maxParaphrases) {
 					paraphrasedResult();
 					updateDailyUsage();
 				} else {
 					alert(
-						"თქვენ დღიური ლიმიტი ამოგეწურათ. ამჟამინდელი ყოველდღიური ლიმიტია - 10."
+						"თქვენ დღიური ლიმიტი ამოგეწურათ. ამჟამინდელი ყოველდღიური ლიმიტია - " +
+							tier.maxParaphrases
 					);
 				}
 			} else {
@@ -65,11 +66,13 @@ function Paraphraser() {
 						htmlFor="text"
 						className="block mb-2 font-medium text-gray-90 text-lg">
 						თქვენი ტექსტი{" "}
-						<span className="max float-right">{charlength} / 200</span>
+						<span className="max float-right">
+							{charlength} / {tier.maxChars}
+						</span>
 					</label>
 					<textarea
 						ref={inputRef}
-						maxLength={200}
+						maxLength={tier.maxChars}
 						id="text"
 						rows="10"
 						className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 focus:outline-blue-400"
