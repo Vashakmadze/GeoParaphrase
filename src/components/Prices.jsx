@@ -14,7 +14,7 @@ function Prices({ signedIn }) {
 
 	const offerPremium = {
 		name: "პრემიუმ პაკეტი",
-		price: 5,
+		price: 8,
 		offers: {
 			charachters: 1000,
 			words: 100,
@@ -24,7 +24,7 @@ function Prices({ signedIn }) {
 
 	const offerUnlimited = {
 		name: "გრანდიოზული პაკეტი",
-		price: 10,
+		price: 15,
 		offers: {
 			charachters: 2000,
 			words: 200,
