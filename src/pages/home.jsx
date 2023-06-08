@@ -6,10 +6,17 @@ import Footer from "../components/Footer";
 import Prices from "../components/Prices";
 import { Analytics } from "@vercel/analytics/react";
 import { register, login } from "../services/authentication";
+import ErrorModal from "../components/ErrorModal";
 
 function App() {
 	const [signedIn, setSignedIn] = useState(false);
 	const [user, setUser] = useState();
+	const [subscription, setSubscription] = useState();
+	const [error, setError] = useState(true);
+
+	const searchParams = new URLSearchParams(document.location.search);
+	const status = searchParams.get("status");
+	console.log(status);
 
 	useEffect(() => {
 		console.log("გადი ბიჭო აქედან!");
@@ -28,10 +35,11 @@ function App() {
 				setUser={setUser}
 			/>
 			<Paraphraser />
-			<Prices />
+			{!subscription && <Prices signedIn={signedIn} />}
 			<About />
 			<Footer />
 			<Analytics />
+			{status === "failure" && error && <ErrorModal setError={setError} />}
 		</>
 	);
 }

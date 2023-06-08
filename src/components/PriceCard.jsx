@@ -1,6 +1,16 @@
 import React from "react";
+import { subscribe } from "../services/stripe";
 
-function PriceCard({ data }) {
+function PriceCard({ data, signedIn }) {
+	const buy = async () => {
+		if (signedIn) {
+			const response = await subscribe(data.price);
+			window.location.replace(response.data.url);
+		} else {
+			alert("გთხოვთ გაიარეთ ავტორიზაცია");
+		}
+	};
+
 	return (
 		<div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
 			<h5 className="mb-4 text-xl font-medium text-gray-500">{data.name}</h5>
@@ -19,7 +29,7 @@ function PriceCard({ data }) {
 				<li className="flex space-x-3">
 					<svg
 						aria-hidden="true"
-						className="flex-shrink-0 w-5 h-5 text-blue-600"
+						className="flex-shrink-0 w-5 h-5 text-indigo-700"
 						fill="currentColor"
 						viewBox="0 0 20 20"
 						xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +46,7 @@ function PriceCard({ data }) {
 				<li className="flex space-x-3">
 					<svg
 						aria-hidden="true"
-						className="flex-shrink-0 w-5 h-5 text-blue-600"
+						className="flex-shrink-0 w-5 h-5 text-indigo-700"
 						fill="currentColor"
 						viewBox="0 0 20 20"
 						xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +63,7 @@ function PriceCard({ data }) {
 				<li className="flex space-x-3">
 					<svg
 						aria-hidden="true"
-						className="flex-shrink-0 w-5 h-5 text-blue-600"
+						className="flex-shrink-0 w-5 h-5 text-indigo-700"
 						fill="currentColor"
 						viewBox="0 0 20 20"
 						xmlns="http://www.w3.org/2000/svg">
@@ -86,9 +96,10 @@ function PriceCard({ data }) {
 				</li> */}
 			</ul>
 			<button
+				onClick={buy}
 				type="button"
-				className="text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
-				მალე
+				className="text-white bg-teal-600 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
+				შეიძინე
 				{/* გაწევრიანდი */}
 			</button>
 		</div>
