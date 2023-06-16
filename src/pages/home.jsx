@@ -59,7 +59,7 @@ function App() {
 
 	useEffect(() => {
 		if (user) {
-			getSubscriptionFromDatabase(user.email, setTier, setSubscription);
+			getSubscriptionFromDatabase(setTier, setSubscription, user, setUser);
 		} else {
 			setTier({
 				maxParaphrases: 10,
