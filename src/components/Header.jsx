@@ -81,7 +81,7 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 							გამარჯობა
 						</span>
 						<span className="font-semibold mr-2 flex-auto my-4 lg:my-0 text-center">
-							საიტი მუშაობს სატესტო რეჯიმში და მუდმივი დახვეწის პროცესშია.
+							საიტი მუშაობს სატესტო რეჟიმში და მუდმივი დახვეწის პროცესშია.
 							მოსალოდნელია გრამატიკული და სინტაქსური შეცდომები. მადლობა ❤
 						</span>
 						<img
