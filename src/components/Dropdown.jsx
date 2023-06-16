@@ -12,6 +12,7 @@ export default function Dropdown({ user, logout, resetPasswordToggle }) {
 	const createPortal = async () => {
 		if (user.id) {
 			const portal = await getSubscriptionPortal(user.id);
+			console.log(portal);
 			window.location.replace(portal.data.url);
 		} else {
 			alert("თქვენ არ გაქვთ შეძენილი პაკეტი.");

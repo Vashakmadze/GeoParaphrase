@@ -84,6 +84,7 @@ export const getSubscriptionPortal = async (sessionId) => {
         .then((response) => {
             return response;
         }).catch(error => {
+            console.log(error)
             return error;
         });
 
