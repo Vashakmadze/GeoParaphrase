@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut } from "firebase/auth";
 import app from './firebase';
 
 const auth = getAuth(app);
@@ -33,5 +33,12 @@ export const resetPassword = async (email) => {
         .catch((error) => {
             throw error;
         });
+}
+
+export const logoutFirebase = async () => {
+    return await signOut(auth).then((data) => {
+    }).catch((error) => {
+        console.log(error)
+    })
 }
 

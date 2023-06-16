@@ -5,6 +5,7 @@ import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 import Dropdown from "./Dropdown";
 import ResetPasswordModal from "./ResetPasswordModal";
+import { logoutFirebase } from "../services/authentication";
 
 function Header({ signedIn, setSignedIn, user, setUser }) {
 	const [visible, setVisible] = useState(true);
@@ -30,6 +31,7 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 	};
 
 	const logout = () => {
+		logoutFirebase();
 		setUser(null);
 		setSignedIn(false);
 		sessionStorage.removeItem("user");
