@@ -58,7 +58,7 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		if (user) {
+		if (signedIn) {
 			getSubscriptionFromDatabase(setTier, setSubscription, user, setUser);
 		} else {
 			setTier({
@@ -67,7 +67,7 @@ function App() {
 			});
 			setSubscription(false);
 		}
-	}, [user]);
+	}, [signedIn]);
 
 	return (
 		<>
