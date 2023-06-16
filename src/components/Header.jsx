@@ -82,7 +82,9 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 						</span>
 						<span className="font-semibold mr-2 flex-auto my-4 lg:my-0 text-center">
 							საიტი მუშაობს სატესტო რეჟიმში და მუდმივი დახვეწის პროცესშია.
-							მოსალოდნელია გრამატიკული და სინტაქსური შეცდომები. მადლობა ❤
+							მოსალოდნელია გრამატიკული და სინტაქსური შეცდომები. თუ პაკეტის
+							შეძენისას პრობლემები შეგექმნათ, გთხოვთ დამიკავშირდით მეილზე.
+							მადლობა ❤
 						</span>
 						<img
 							className="w-6 text-white hover:cursor-pointer"
