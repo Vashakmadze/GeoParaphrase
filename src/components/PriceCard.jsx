@@ -17,7 +17,7 @@ function PriceCard({ data, signedIn }) {
 			<h5 className="mb-4 text-xl font-medium text-gray-500">{data.name}</h5>
 			<div className="flex items-baseline text-gray-900">
 				<span className="text-4xl font-semibold font-sans translate-y-[-15%] mr-1">
-					$
+					€
 				</span>
 				<span className="text-5xl font-extrabold tracking-wider">
 					{data.price}
