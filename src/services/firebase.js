@@ -1,13 +1,13 @@
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBG7DOXIyU1pDJSLRd4WLd3q88m9ccuDxU",
-    authDomain: "gadawere.firebaseapp.com",
-    projectId: "gadawere",
-    storageBucket: "gadawere.appspot.com",
-    messagingSenderId: "14277108017",
-    appId: "1:14277108017:web:0f7e2e2358e27a4fa99010",
-    measurementId: "G-5VZP55Y7KE"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
