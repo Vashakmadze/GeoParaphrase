@@ -96,13 +96,20 @@ function PriceCard({ data, signedIn }) {
 					</span>
 				</li> */}
 			</ul>
-			<button
-				onClick={buy}
-				type="button"
-				className="text-white bg-teal-600 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
-				შეიძინე
-				{/* გაწევრიანდი */}
-			</button>
+			{data.price === 0 ? (
+				<button
+					type="button"
+					className="text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
+					სარგებლობთ
+				</button>
+			) : (
+				<button
+					onClick={buy}
+					type="button"
+					className="text-white bg-teal-600 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
+					გაწევრიანდი
+				</button>
+			)}
 		</div>
 	);
 }
