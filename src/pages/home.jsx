@@ -55,11 +55,6 @@ function App() {
 				}
 			});
 		}
-		const data = {
-			email: "asdasda",
-			customer: "asasdsad",
-		};
-		addSubscriptionToDatabase("rame", data);
 	}, []);
 
 	useEffect(() => {
