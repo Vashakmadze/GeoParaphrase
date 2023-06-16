@@ -13,7 +13,7 @@ export const addSubscriptionToDatabase = async (subscriptionId, data) => {
     return docRef;
 }
 
-export const getSubscriptionFromDatabase = async (email, setTier, setSubscription, setUser) => {
+export const getSubscriptionFromDatabase = async (email, setTier, setSubscription) => {
     const q = query(collection(db, "subscriptions"), where("email", "==", email));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach(async (doc) => {
@@ -21,6 +21,6 @@ export const getSubscriptionFromDatabase = async (email, setTier, setSubscriptio
         const tier = response.data.plan.amount === 800 ? { maxParaphrases: 50, maxChars: 1000 } : { maxParaphrases: 200, maxChars: 2000 }
         setTier(tier);
         setSubscription(true);
-        setUser((prevState) => ({ ...prevState, id: doc.id }))
+        // setUser((prevState) => ({ ...prevState, id: doc.id }))
     });
 }

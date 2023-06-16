@@ -47,7 +47,6 @@ export const RegisterModal = ({
 				alert("არასწორი ელექტრონული ფოსტა.");
 				break;
 			default:
-				console.log(code);
 				alert("დაფიქსირდა შეცდომა. სცადეთ თავიდან.");
 		}
 	};
