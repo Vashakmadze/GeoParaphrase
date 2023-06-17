@@ -4,7 +4,6 @@ export const ErrorModal = ({ error, setError }) => {
 	useEffect(() => {
 		setTimeout(function () {
 			setError(false);
-			window.location.replace("https://gadawere.ge/");
 		}, 9500);
 	}, []);
 
