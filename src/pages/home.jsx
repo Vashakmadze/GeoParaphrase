@@ -49,7 +49,6 @@ function App() {
 					sessionStorage.removeItem("session");
 					addSubscriptionToDatabase(resp.data.id, data);
 					setSubscription(true);
-					window.location.replace("https://gadawere.ge/");
 				} else {
 					console.log("ar aris nakid", resp.data);
 				}
