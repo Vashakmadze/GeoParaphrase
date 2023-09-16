@@ -74,7 +74,7 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 					</section>
 				)}
 			</header>
-			{visible && (
+			{/* {visible && (
 				<div className="bg-indigo-900 text-center py-4 px-4 lg:px-4">
 					<div
 						className="p-2 bg-indigo-800 items-center text-indigo-100 leading-none rounded-lg flex-col lg:flex-row lg:rounded-full flex lg:inline-flex"
@@ -96,7 +96,7 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 						/>
 					</div>
 				</div>
-			)}
+			)} */}
 			{login && (
 				<LoginModal
 					toggle={toggleLogin}
