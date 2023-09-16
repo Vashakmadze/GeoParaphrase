@@ -20,7 +20,7 @@ function App() {
 	const [error, setError] = useState(true);
 	const [tier, setTier] = useState({
 		maxParaphrases: 10,
-		maxChars: 200,
+		maxChars: 500,
 	});
 
 	const searchParams = new URLSearchParams(document.location.search);
@@ -62,7 +62,7 @@ function App() {
 		} else {
 			setTier({
 				maxParaphrases: 10,
-				maxChars: 201,
+				maxChars: 500,
 			});
 			setSubscription(false);
 		}
