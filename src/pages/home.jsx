@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Paraphraser from "../components/Paraphraser";
 import About from "../components/About";
@@ -12,6 +12,7 @@ import {
 	addSubscriptionToDatabase,
 	getSubscriptionFromDatabase,
 } from "../services/database";
+import { LoaderFullPage } from "../components/Loader";
 
 function App() {
 	const [signedIn, setSignedIn] = useState(false);
@@ -22,7 +23,7 @@ function App() {
 		maxParaphrases: 10,
 		maxChars: 500,
 	});
-
+	const [loading, setLoading] = useState(false);
 	const searchParams = new URLSearchParams(document.location.search);
 	const status = searchParams.get("status");
 
@@ -58,7 +59,13 @@ function App() {
 
 	useEffect(() => {
 		if (signedIn) {
-			getSubscriptionFromDatabase(setTier, setSubscription, user, setUser);
+			getSubscriptionFromDatabase(
+				setTier,
+				setSubscription,
+				user,
+				setUser,
+				setLoading
+			);
 		} else {
 			setTier({
 				maxParaphrases: 10,
@@ -70,6 +77,7 @@ function App() {
 
 	return (
 		<>
+			{loading && LoaderFullPage()}
 			<Header
 				signedIn={signedIn}
 				setSignedIn={setSignedIn}
