@@ -66,6 +66,7 @@ function App() {
 				setUser,
 				setLoading
 			);
+			setLoading(false);
 		} else {
 			setTier({
 				maxParaphrases: 10,

@@ -26,5 +26,4 @@ export const getSubscriptionFromDatabase = async (setTier, setSubscription, user
             setUser((prevState) => ({ ...prevState, id: doc.id }))
         });
     }
-    setLoading(false);
 }
