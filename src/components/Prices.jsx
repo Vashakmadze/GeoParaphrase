@@ -6,7 +6,7 @@ function Prices({ signedIn }) {
 		name: "უფასო პაკეტი",
 		price: 0,
 		offers: {
-			charachters: 200,
+			charachters: 500,
 			words: 50,
 			paraphrases: 10,
 		},
