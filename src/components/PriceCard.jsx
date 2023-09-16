@@ -14,7 +14,9 @@ function PriceCard({ data, signedIn }) {
 
 	return (
 		<div className="max-w-[24rem] p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
-			<h5 className="mb-4 text-xl font-medium text-gray-500">{data.name}</h5>
+			<h5 className="mb-4 text-xl font-medium text-gray-500">
+				თვიური {data.name}
+			</h5>
 			<div className="flex items-baseline text-gray-900">
 				<span className="text-4xl font-semibold font-sans translate-y-[-15%] mr-1">
 					€
@@ -22,7 +24,7 @@ function PriceCard({ data, signedIn }) {
 				<span className="text-5xl font-extrabold tracking-wider">
 					{data.price}
 				</span>
-				<span className="ml-1 text-xl font-normal text-gray-500">/month</span>
+				<span className="ml-1 text-xl font-normal text-gray-500">/ თვეში</span>
 			</div>
 			<ul
 				role="list"
