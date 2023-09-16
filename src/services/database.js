@@ -13,7 +13,8 @@ export const addSubscriptionToDatabase = async (subscriptionId, data) => {
     return docRef;
 }
 
-export const getSubscriptionFromDatabase = async (setTier, setSubscription, user, setUser) => {
+export const getSubscriptionFromDatabase = async (setTier, setSubscription, user, setUser, setLoading) => {
+    setLoading(true);
     if (user) {
         const q = query(collection(db, "subscriptions"), where("email", "==", user.email));
         const querySnapshot = await getDocs(q);
@@ -25,5 +26,5 @@ export const getSubscriptionFromDatabase = async (setTier, setSubscription, user
             setUser((prevState) => ({ ...prevState, id: doc.id }))
         });
     }
-
+    setLoading(false);
 }
