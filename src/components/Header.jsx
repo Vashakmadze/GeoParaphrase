@@ -6,12 +6,18 @@ import RegisterModal from "./RegisterModal";
 import Dropdown from "./Dropdown";
 import ResetPasswordModal from "./ResetPasswordModal";
 import { logoutFirebase } from "../services/authentication";
+import { Link, useLocation } from "react-router-dom";
 
 function Header({ signedIn, setSignedIn, user, setUser }) {
 	const [visible, setVisible] = useState(true);
 	const [login, setLogin] = useState(false);
 	const [register, setRegister] = useState(false);
 	const [resetPassword, setResetPassword] = useState(false);
+	const [headerStyle, setHeaderStyle] = useState("#60A5FA");
+	const [headerText, setHeaderText] = useState("პერიფრაზირება");
+	const { pathname } = useLocation();
+	const [navText, setNavText] = useState("გაშინაარსება");
+	const [nav, setNav] = useState("summary");
 
 	const popupClose = () => {
 		setVisible((prevState) => !prevState);
@@ -41,25 +47,46 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 		setResetPassword((prevState) => !prevState);
 	};
 
+	useEffect(() => {
+		if (pathname === "/summary") {
+			setHeaderStyle((prev) => "#312e81");
+			setHeaderText((prev) => "გაშინაარსება");
+			setNavText((prev) => "პერიფრაზირება");
+			setNav("paraphrase");
+		} else {
+			setHeaderStyle((prev) => "#60A5FA");
+			setHeaderText((prev) => "პერიფრაზირება");
+			setNavText((prev) => "გაშინაარსება");
+			setNav("summary");
+		}
+	}, [pathname]);
+
 	return (
 		<>
-			<header className="text-white flex md:justify-between flex-col items-center gap-10 md:gap-0 md:flex-row flex-wrap bg-blue-400 p-6 font-semibold text-xl tracking-tight">
+			<header
+				className={`text-white flex md:justify-between flex-col items-center gap-10 md:gap-0 md:flex-row flex-wrap  p-6 font-semibold text-xl tracking-tight bg-[${headerStyle}]`}>
+				<section className="nav">
+					<nav
+						className={`text-center mr-6 cursor-pointer transition duration-500 hover:-translate-y-2 border-solid border-white bg-white text-[${headerStyle}] p-2 rounded-md`}>
+						<Link to={`/${nav}`}> {navText}</Link>
+					</nav>
+				</section>
 				<section className="flex items-center flex-no-shrin md:mr-6">
-					<img
+					{/* <img
 						src={icon}
 						className="w-12 mr-4"
-					/>
-					<h1 className="hidden md:block">ტექსტის ავტომატური პერიფრაზირება </h1>
+					/> */}
+					<h1 className="hidden md:block">ტექსტის ავტომატური {headerText} </h1>
 				</section>
 				{!signedIn ? (
 					<section className="flex items-center">
 						<div
-							className="text-center mr-6 cursor-pointer transition duration-500 hover:scale-110"
+							className={`text-center mr-6 cursor-pointer transition duration-500 hover:-translate-y-2 border-solid border-white bg-white text-[${headerStyle}] p-2 rounded-md`}
 							onClick={toggleLogin}>
 							შესვლა
 						</div>
 						<div
-							className="text-center cursor-pointer transition duration-500 hover:scale-110"
+							className={`text-center cursor-pointer transition duration-500 hover:-translate-y-2 border-solid border-white bg-white text-[${headerStyle}] p-2 rounded-md`}
 							onClick={toggleRegister}>
 							რეგისტრაცია
 						</div>

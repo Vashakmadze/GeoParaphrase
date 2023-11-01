@@ -60,7 +60,7 @@ function Paraphraser({ tier }) {
 	};
 
 	return (
-		<main className="w-10/12 m-auto px-3 my-[4rem]">
+		<div className="w-10/12 m-auto px-3 my-[4rem] selection:bg-blue-400">
 			<div className="paraphraser flex flex-col lg:flex-row">
 				<div className="relative textarea flex-1 mb-6 lg:mr-6">
 					<label
@@ -101,7 +101,7 @@ function Paraphraser({ tier }) {
 					{loading && LoaderSmall()}
 				</div>
 			</div>
-		</main>
+		</div>
 	);
 }
 

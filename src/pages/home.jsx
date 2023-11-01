@@ -1,4 +1,5 @@
 import { lazy, useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "../components/Header";
 import Paraphraser from "../components/Paraphraser";
 import About from "../components/About";
@@ -13,6 +14,7 @@ import {
 	getSubscriptionFromDatabase,
 } from "../services/database";
 import { LoaderFullPage } from "../components/Loader";
+import Summarizer from "../components/Summarizer";
 
 function App() {
 	const [signedIn, setSignedIn] = useState(false);
@@ -22,6 +24,10 @@ function App() {
 	const [tier, setTier] = useState({
 		maxParaphrases: 10,
 		maxChars: 500,
+	});
+	const [tierSummary, setTierSummary] = useState({
+		maxParaphrases: 15,
+		maxChars: 1000,
 	});
 	const [loading, setLoading] = useState(false);
 	const searchParams = new URLSearchParams(document.location.search);
@@ -76,21 +82,63 @@ function App() {
 	}, [signedIn]);
 
 	return (
-		<>
-			{loading && LoaderFullPage()}
-			<Header
-				signedIn={signedIn}
-				setSignedIn={setSignedIn}
-				user={user}
-				setUser={setUser}
-			/>
-			<Paraphraser tier={tier} />
-			{!subscription && <Prices signedIn={signedIn} />}
-			<About />
-			<Footer />
-			<Analytics />
-			{status === "failure" && error && <ErrorModal setError={setError} />}
-		</>
+		<main className="selection:text-white select-none">
+			<BrowserRouter>
+				{loading && LoaderFullPage()}
+				<Routes>
+					<Route
+						path="/"
+						index
+						element={
+							<>
+								<Header
+									signedIn={signedIn}
+									setSignedIn={setSignedIn}
+									user={user}
+									setUser={setUser}
+								/>
+								<Paraphraser tier={tier} />
+								{!subscription && <Prices signedIn={signedIn} />}
+							</>
+						}
+					/>
+					<Route
+						path="/summary"
+						element={
+							<>
+								<Header
+									signedIn={signedIn}
+									setSignedIn={setSignedIn}
+									user={user}
+									setUser={setUser}
+								/>
+								<Summarizer tier={tierSummary} />
+							</>
+						}
+					/>
+					<Route
+						path="*"
+						index
+						element={
+							<>
+								<Header
+									signedIn={signedIn}
+									setSignedIn={setSignedIn}
+									user={user}
+									setUser={setUser}
+								/>
+								<Paraphraser tier={tier} />
+								{!subscription && <Prices signedIn={signedIn} />}
+							</>
+						}
+					/>
+				</Routes>
+				<About />
+				<Footer />
+				<Analytics />
+				{status === "failure" && error && <ErrorModal setError={setError} />}
+			</BrowserRouter>
+		</main>
 	);
 }
 
