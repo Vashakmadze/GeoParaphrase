@@ -18,6 +18,7 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 	const { pathname } = useLocation();
 	const [navText, setNavText] = useState("გაშინაარსება");
 	const [nav, setNav] = useState("summary");
+	const [colorText, setColorText] = useState("cublue");
 
 	const popupClose = () => {
 		setVisible((prevState) => !prevState);
@@ -53,11 +54,13 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 			setHeaderText((prev) => "გაშინაარსება");
 			setNavText((prev) => "პერიფრაზირება");
 			setNav("paraphrase");
+			setColorText((prev) => "cupurple");
 		} else {
 			setHeaderStyle((prev) => "#60A5FA");
 			setHeaderText((prev) => "პერიფრაზირება");
 			setNavText((prev) => "გაშინაარსება");
 			setNav("summary");
+			setColorText((prev) => "cublue");
 		}
 	}, [pathname]);
 
@@ -67,7 +70,7 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 				className={`text-white flex md:justify-between flex-col items-center gap-10 md:gap-0 md:flex-row flex-wrap  p-6 font-semibold text-xl tracking-tight bg-[${headerStyle}]`}>
 				<section className="nav">
 					<nav
-						className={`text-center mr-6 cursor-pointer transition duration-500 hover:-translate-y-2 border-solid border-white bg-white text-[${headerStyle}] p-2 rounded-md`}>
+						className={`text-center mr-6 cursor-pointer transition duration-500 hover:-translate-y-2 border-solid border-white bg-white text-${colorText} p-2 rounded-md`}>
 						<Link to={`/${nav}`}> {navText}</Link>
 					</nav>
 				</section>
@@ -81,12 +84,12 @@ function Header({ signedIn, setSignedIn, user, setUser }) {
 				{!signedIn ? (
 					<section className="flex items-center">
 						<div
-							className={`text-center mr-6 cursor-pointer transition duration-500 hover:-translate-y-2 border-solid border-white bg-white text-[${headerStyle}] p-2 rounded-md`}
+							className={`text-center mr-6 cursor-pointer transition duration-500 hover:-translate-y-2 border-solid border-white bg-white text-${colorText} p-2 rounded-md`}
 							onClick={toggleLogin}>
 							შესვლა
 						</div>
 						<div
-							className={`text-center cursor-pointer transition duration-500 hover:-translate-y-2 border-solid border-white bg-white text-[${headerStyle}] p-2 rounded-md`}
+							className={`text-center cursor-pointer transition duration-500 hover:-translate-y-2 border-solid border-white bg-white text-${colorText} p-2 rounded-md`}
 							onClick={toggleRegister}>
 							რეგისტრაცია
 						</div>
