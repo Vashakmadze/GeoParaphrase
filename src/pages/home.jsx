@@ -27,7 +27,7 @@ function App() {
 	});
 	const [tierSummary, setTierSummary] = useState({
 		maxParaphrases: 15,
-		maxChars: 1000,
+		maxChars: 500,
 	});
 	const [loading, setLoading] = useState(false);
 	const searchParams = new URLSearchParams(document.location.search);
@@ -57,7 +57,7 @@ function App() {
 					addSubscriptionToDatabase(resp.data.id, data);
 					setSubscription(true);
 				} else {
-					console.log("ar aris nakid", resp.data);
+					// console.log("ar aris nakid", resp.data);
 				}
 			});
 		}
