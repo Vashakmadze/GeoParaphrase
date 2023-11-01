@@ -27,7 +27,7 @@ function App() {
 	});
 	const [tierSummary, setTierSummary] = useState({
 		maxParaphrases: 15,
-		maxChars: 500,
+		maxChars: 450,
 	});
 	const [loading, setLoading] = useState(false);
 	const searchParams = new URLSearchParams(document.location.search);
