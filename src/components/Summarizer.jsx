@@ -39,14 +39,19 @@ function Summarizer({ tier }) {
 	const summarize = () => {
 		const usage = JSON.parse(localStorage.getItem("usageSummary"));
 		if (usage) {
-			if (Object.keys(usage)[0] === date && usage[date] < tier.maxParaphrases) {
-				summarizedResult();
-				updateDailyUsage();
+			if (Object.keys(usage)[0] === date) {
+				if (usage[date] < tier.maxParaphrases) {
+					summarizedResult();
+					updateDailyUsage();
+				} else {
+					alert(
+						"თქვენ დღიური ლიმიტი ამოგეწურათ. ამჟამინდელი ყოველდღიური ლიმიტია - " +
+							tier.maxParaphrases
+					);
+				}
 			} else {
-				alert(
-					"თქვენ დღიური ლიმიტი ამოგეწურათ. ამჟამინდელი ყოველდღიური ლიმიტია - " +
-						tier.maxParaphrases
-				);
+				createDailyUsage();
+				summarizedResult();
 			}
 		} else {
 			createDailyUsage();
