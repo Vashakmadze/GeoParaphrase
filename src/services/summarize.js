@@ -1,5 +1,5 @@
 const summarizeMain = async (message, setLoading) => {
-    const url = "http://3.91.197.39:8000/summarize";
+    const url = "https://gadawre-server.vercel.app/summarize";
 
     const apiRequestBody = {
         "text": message
