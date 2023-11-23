@@ -1,5 +1,5 @@
 const paraphraseMain = async (message, setLoading) => {
-    const url = "https://3.91.197.39:8000/paraphrase";
+    const url = "https://apilukavasha.com.ge:8000/paraphrase";
 
     const apiRequestBody = {
         "text": message
