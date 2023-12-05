@@ -24,7 +24,7 @@ Gadawere is the first-ever Georgian language tool designed for rewriting (Gadawe
 - **Authentication:** Firebase
 - **Payment Processing:** Stripe
 - **Database:** Firebase Firestore
-- **External APIs:** AWS for server, DNS and processing
+- **External Services:** AWS for server, DNS and processing
 
 ## Project Structure
 
