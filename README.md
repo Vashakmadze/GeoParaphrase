@@ -1,6 +1,8 @@
 # Gadawere - Georgian Language Paraphrasing and Summarization Tool
 
-![Gadawere Logo](https://raw.githubusercontent.com/Vashakmadze/GeoParaphrase/main/src/assets/Icon.png)
+<div align=”center”>
+  ![Gadawere Logo](https://raw.githubusercontent.com/Vashakmadze/GeoParaphrase/main/src/assets/Icon.png)
+</div>
 
 Gadawere is the first-ever Georgian language tool designed for rewriting (Gadawere means "rewrite" in Georgian). This project provides two main features: paraphrasing and summarization. Users can input text and receive rewritten or summarized content, making it a valuable tool for content modification and summarization.
 
