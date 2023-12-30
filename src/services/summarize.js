@@ -1,5 +1,5 @@
 const summarizeMain = async (message, setLoading) => {
-    const url = "https://apilukavasha.com.ge/summarize";
+    const url = "https://www.apilukavasha.com.ge/summarize";
 
     const apiRequestBody = {
         "text": message

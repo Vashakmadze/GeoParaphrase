@@ -1,5 +1,5 @@
 export const subscribe = async (price) => {
-    const url = "https://apilukavasha.com.ge/create-checkout-session";
+    const url = "https://www.apilukavasha.com.ge/create-checkout-session";
 
     const apiRequestBody = {
         "product": price
@@ -22,7 +22,7 @@ export const subscribe = async (price) => {
 }
 
 export const getSubscription = async (id) => {
-    const url = "https://apilukavasha.com.ge/get-checkout-session";
+    const url = "https://www.apilukavasha.com.ge/get-checkout-session";
 
     const apiRequestBody = {
         "session": id
@@ -45,7 +45,7 @@ export const getSubscription = async (id) => {
 }
 
 export const getCustomer = async (customerId) => {
-    const url = "https://apilukavasha.com.ge/get-customer";
+    const url = "https://www.apilukavasha.com.ge/get-customer";
 
     const apiRequestBody = {
         "customer": customerId
@@ -68,7 +68,7 @@ export const getCustomer = async (customerId) => {
 }
 
 export const getSubscriptionPortal = async (sessionId) => {
-    const url = "https://apilukavasha.com.ge/create-portal-session";
+    const url = "https://www.apilukavasha.com.ge/create-portal-session";
 
     const apiRequestBody = {
         "session_id": sessionId
