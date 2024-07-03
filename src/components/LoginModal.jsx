@@ -129,7 +129,7 @@ export const LoginModal = ({
 								დაგავიწყდათ პაროლი?{" "}
 								<button
 									className="text-blue-700 hover:underline"
-									onClick={() => resetPassword(emailRef)}>
+									onClick={() => resetPassword(emailRef.current.value)}>
 									აღადგინე
 								</button>
 							</div>
